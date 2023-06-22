@@ -47,16 +47,29 @@ func CreateVaiDirs(ens []data.StrokeEn) {
 		y := filepath.Join("public", year)
 		os.Mkdir(y, 0755)
 		month := strconv.Itoa(int(en.Time.Month()))
+		if len(month) == 1 {
+			month = "0" + month
+		}
 		m := filepath.Join(y, month)
+
 		os.Mkdir(m, 0755)
 		day := strconv.Itoa(en.Time.Day())
+		if len(day) == 1 {
+			day = "0" + day
+		}
 		d := filepath.Join(m, day)
 		os.Mkdir(d, 0755)
 		hour := strconv.Itoa(en.Time.Hour())
+		if len(hour) == 1 {
+			hour = "0" + hour
+		}
 		h := filepath.Join(d, hour)
 		os.Mkdir(h, 0755)
 
 		min := strconv.Itoa(en.Time.Minute())
+		if len(min) == 1 {
+			min = "0" + min
+		}
 
 		f := filepath.Join(h, min+".lf")
 
